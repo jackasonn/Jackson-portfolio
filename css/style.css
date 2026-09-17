@@ -147,8 +147,7 @@ main,
   padding: clamp(80px, 13vw, 180px) 0 clamp(64px, 9vw, 130px);
   overflow: hidden;
   color: var(--background);
-  background-color: #302f2d;
-  /* Replace the colour above with: background-image: url('../assets/images/your-image.jpg'); */
+  background-image: url('../assets/images/hero.jpg');
   background-position: center;
   background-size: cover;
 }
