@@ -1,35 +1,32 @@
 // Single source of truth for project content used by the music, visuals, and case-study pages.
 // Keep each `id` unique: it is the value used in project.html?id=your-project-id.
 const projects = [
-  {
-    id: "kinetic-string",
-    title: "Kinetic String",
-    category: "Tangible Interaction",
+
+    {
+    id: "decay-repair",
+    title: "Decay / Repair",
+    category: "design",
     year: "2026",
-    type: "design",
-    description:
-      "A physical musical interface exploring rotation, coordination, timing and bodily interaction.",
-    longDescription:
-      "Kinetic String is a tangible musical instrument prototype inspired by the physical relationship between movement and sound. A crank repeatedly plucks rubber-band strings while the user changes pitch by fingering the frets.",
-    tags: ["Interaction Design", "Physical Computing", "Music"],
-    // Image and audio paths are relative to the website root.
-    hero: "assets/images/kinetic-string-hero.jpg",
+    type: "Interactive Music Experience",
+    image: "assets/images/decay-repair.jpg",
+    shortDescription: "An interactive music experience where sound and interface gradually decay, inviting the listener to actively repair the music.",
+    description: "Decay / Repair is an experimental interactive music experience that explores the relationship between sound, interface and user interaction. The project presents an EP through an interactive website, where each track can progressively degrade over time through changes to EQ, pitch, tempo, tape effects and timing.",
     gallery: [
-      "assets/images/kinetic-string-01.jpg",
-      "assets/images/kinetic-string-02.jpg",
-      "assets/images/kinetic-string-03.jpg"
-    ]
+        "assets/images/decay-repair-01.jpg",
+        "assets/images/decay-repair-02.jpg",
+        "assets/images/decay-repair-03.jpg"
+    ],
+    audio: "assets/music/decay-repair-track-01.mp3",
   },
   {
-    id: "sound-garden",
-    title: "Sound Garden",
-    category: "Interactive Installation",
+    id: "fernmere",
+    title: "Fernmere",
+    category: "Interactive Narrative",
     year: "2026",
     type: "design",
     description:
-      "An interactive environmental installation connecting place, sound and Indigenous storytelling.",
-    longDescription:
-      "Sound Garden explores how an installation can encourage people to slow down and engage with an environment through sound. Five stainless-steel mangrove forms create a visual landmark while QR interactions connect visitors with stories and ambient sound.",
+      "An Interactive Worldbuilding Table-top RPG Experience",
+    longDescription: "Fernmere is a whimsical woodland fantasy tabletop role-playing game developed as a collaborative creative project. Set within an enchanted natural world inhabited by woodland creatures, the project combines storytelling, game design and visual communication to create a cohesive fictional universe.",
     tags: ["Installation", "Interaction", "Sound"],
     hero: "assets/images/sound-garden-hero.jpg",
     gallery: [
@@ -53,7 +50,8 @@ const projects = [
     gallery: [
       "assets/images/fernmere-01.jpg",
       "assets/images/fernmere-02.jpg",
-      "assets/images/fernmere-03.jpg"
+      "assets/images/fernmere-03.jpg",
+      "assets/images/fernmere-04.jpg"
     ]
   },
   {
