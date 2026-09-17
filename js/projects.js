@@ -11,6 +11,7 @@ const projects = [
     image: "assets/images/decay-repair.jpg",
     shortDescription: "An interactive music experience where sound and interface gradually decay, inviting the listener to actively repair the music.",
     description: "Decay / Repair is an experimental interactive music experience that explores the relationship between sound, interface and user interaction. The project presents an EP through an interactive website, where each track can progressively degrade over time through changes to EQ, pitch, tempo, tape effects and timing.",
+    hero: "assets/images/decay-repair-hero.jpg",
     gallery: [
         "assets/images/decay-repair-01.jpg",
         "assets/images/decay-repair-02.jpg",
@@ -25,14 +26,14 @@ const projects = [
     year: "2026",
     type: "design",
     description:
-      "An Interactive Worldbuilding Table-top RPG Experience",
+      "A Charming & Whimsical Interactive Tabletop-RPG Worldbuilding Experience",
     longDescription: "Fernmere is a whimsical woodland fantasy tabletop role-playing game developed as a collaborative creative project. Set within an enchanted natural world inhabited by woodland creatures, the project combines storytelling, game design and visual communication to create a cohesive fictional universe.",
-    tags: ["Installation", "Interaction", "Sound"],
-    hero: "assets/images/sound-garden-hero.jpg",
+    tags: ["Graphic-design", "Interaction", "TTRPG"],
+    hero: "assets/images/fernmere-hero.jpg",
     gallery: [
-      "assets/images/sound-garden-01.jpg",
-      "assets/images/sound-garden-02.jpg",
-      "assets/images/sound-garden-03.jpg"
+      "assets/images/fernmere-01.jpg",
+      "assets/images/fernmere-02.jpg",
+      "assets/images/fernmere-03.jpg"
     ]
   },
   {
