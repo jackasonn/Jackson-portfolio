@@ -1,7 +1,7 @@
 /* Local Monument Extended files used for headings, navigation, and footer text. */
 @font-face {
   font-family: 'Monument Extended';
-  src: url('../assets/monumentextended-regular.otf') format('opentype');
+  src: url('../assets/fonts/monumentextended-regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -9,7 +9,7 @@
   
 @font-face {
   font-family: 'Monument Extended';
-  src: url('../assets/monumentextended-ultrabold.otf') format('opentype');
+  src: url('../assets/fonts/monumentextended-ultrabold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -23,15 +23,15 @@
   --text: #5d5853;
   --muted: #b0a396;
   --accent: #1351aa;
-  --accent-dark: #416f65;
-  --line: rgba(23, 24, 23, 0.16);
+  --accent-dark: #14396D;
+  --line: rgba(64, 54, 43, 0.16);
 
   --font-display: "Monument Extended", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --radius: 22px;
   --page-width: 1280px;
-  --side-padding: clamp(20px, 5vw, 72px);
+  --side-padding: clamp(5px, 2vw, 50px);
 }
 
 /* Foundation: predictable sizing, smooth anchor scrolling, and default body text. */
