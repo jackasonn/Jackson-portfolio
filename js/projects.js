@@ -1,3 +1,5 @@
+// Single source of truth for project content used by the music, visuals, and case-study pages.
+// Keep each `id` unique: it is the value used in project.html?id=your-project-id.
 const projects = [
   {
     id: "kinetic-string",
@@ -10,6 +12,7 @@ const projects = [
     longDescription:
       "Kinetic String is a tangible musical instrument prototype inspired by the physical relationship between movement and sound. A crank repeatedly plucks rubber-band strings while the user changes pitch by fingering the frets.",
     tags: ["Interaction Design", "Physical Computing", "Music"],
+    // Image and audio paths are relative to the website root.
     hero: "assets/images/kinetic-string-hero.jpg",
     gallery: [
       "assets/images/kinetic-string-01.jpg",

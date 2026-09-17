@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Page metadata and shared site styling. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Project case study — Jackson Moore.">
@@ -8,27 +9,31 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Decorative bubbles; they do not affect page content. -->
   <div class="water-layer" aria-hidden="true">
     <div class="bubble bubble-1"></div>
     <div class="bubble bubble-4"></div>
   </div>
 
+  <!-- Shared site navigation. -->
   <header class="site-header">
     <a class="logo" href="index.html">JACKSON<br>MOORE</a>
     <nav class="nav" aria-label="Main navigation">
-      <a href="index.html">Home</a>
       <a href="music.html">Music</a>
-      <a href="design.html">Visual Art / Design</a>
+      <a href="design.html">Visuals</a>
     </nav>
   </header>
 
+  <!-- project-page.js builds the selected case study inside this element. -->
   <main id="project-page"></main>
 
+  <!-- Shared footer. -->
   <footer class="site-footer">
     <span>© 2026 Jackson Moore</span>
     <a href="index.html">Back home ↑</a>
   </footer>
 
+  <!-- Project data must load before the case-study renderer. -->
   <script src="js/projects.js"></script>
   <script src="js/project-page.js"></script>
   <script src="js/main.js"></script>

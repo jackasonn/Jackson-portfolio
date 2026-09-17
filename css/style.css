@@ -1,3 +1,4 @@
+/* Local Monument Extended files used for headings, navigation, and footer text. */
 @font-face {
   font-family: 'Monument Extended';
   src: url('../assets/monumentextended-regular.otf') format('opentype');
@@ -14,6 +15,7 @@
   font-display: swap;
 }
 
+/* Site-wide design tokens: update these values to change the visual system. */
 :root {
   /* ===== CHANGE THESE TO CREATE YOUR OWN VISUAL STYLE ===== */
   --background: #e3e2de;
@@ -32,6 +34,7 @@
   --side-padding: clamp(20px, 5vw, 72px);
 }
 
+/* Foundation: predictable sizing, smooth anchor scrolling, and default body text. */
 * {
   box-sizing: border-box;
 }
@@ -49,6 +52,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Display typography and shared link hover behaviour. */
 h1, h2, h3 {
   font-family: var(--font-display);
   color: var(--accent);
@@ -64,6 +68,7 @@ a:hover {
   color: var(--accent);
 }
 
+/* Shared header/footer stacking keeps content above the decorative bubble layer. */
 .site-header,
 main,
 .site-footer {
@@ -71,6 +76,7 @@ main,
   z-index: 2;
 }
 
+/* Header layout and brand/navigation styles used on every page. */
 .site-header {
   width: min(var(--page-width), calc(100% - var(--side-padding) * 2));
   margin: 0 auto;
@@ -102,16 +108,17 @@ main,
   color: var(--muted);
 }
 
-.nav a:hover,
-.nav a.active {
+.nav a:hover {
   color: var(--accent);
 }
 
+/* Reusable centred content width for page sections. */
 .section {
   width: min(var(--page-width), calc(100% - var(--side-padding) * 2));
   margin: 0 auto;
 }
 
+/* Homepage hero: the base layout remains available for a future split hero. */
 .hero {
   min-height: 78vh;
   display: grid;
@@ -132,6 +139,7 @@ main,
   font-weight: 500;
 }
 
+/* Current full-bleed hero image. Replace the background-image path with your own image. */
 .hero-full-bleed {
   position: relative;
   isolation: isolate;
@@ -147,6 +155,7 @@ main,
   background-size: cover;
 }
 
+/* On the homepage, place the transparent header directly over the hero image. */
 .home-page .site-header {
   position: absolute;
   inset: 0 0 auto;
@@ -159,11 +168,11 @@ main,
 }
 
 .home-page .logo:hover,
-.home-page .nav a:hover,
-.home-page .nav a.active {
+.home-page .nav a:hover {
   color: var(--accent);
 }
 
+/* Dark overlay keeps cream hero text readable over a dark photograph. */
 .hero-full-bleed::before {
   content: "";
   position: absolute;
@@ -202,6 +211,7 @@ main,
   font-weight: 400;
 }
 
+/* Small all-caps labels and introductory copy. */
 .eyebrow {
   margin: 0;
   color: var(--muted);
@@ -224,6 +234,7 @@ main,
   padding-bottom: 4px;
 }
 
+/* Temporary image treatment: replace these elements with real project images later. */
 .placeholder-image {
   position: relative;
   overflow: hidden;
@@ -261,6 +272,7 @@ main,
   animation: ripple 4s ease-in-out infinite;
 }
 
+/* Homepage content sections and selected-project card grid. */
 .section-heading {
   display: flex;
   align-items: flex-end;
@@ -331,11 +343,12 @@ h2 {
   font-size: 0.78rem;
 }
 
+/* Two-column biography and contact call-to-action. */
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8vw;
-  padding-top: 180px;
+  padding-top: clamp(220px, 20vw, 320px);
   padding-bottom: 180px;
   border-bottom: 1px solid var(--line);
 }
@@ -366,6 +379,7 @@ h2 {
   margin-top: 40px;
 }
 
+/* Minimal shared footer. */
 .site-footer {
   width: min(var(--page-width), calc(100% - var(--side-padding) * 2));
   margin: 0 auto;
@@ -373,8 +387,8 @@ h2 {
   display: flex;
   justify-content: space-between;
   color: var(--muted);
+  font-family: var(--font-display);
   font-size: 0.75rem;
-  border-top: 1px solid var(--line);
 }
 
 /* ===== INNER PAGE ===== */
@@ -395,6 +409,7 @@ h2 {
   font-size: 1.1rem;
 }
 
+/* Music listing: cover art, copy, and optional play control. */
 .music-list {
   padding-bottom: 160px;
 }
@@ -439,6 +454,7 @@ h2 {
   color: var(--background);
 }
 
+/* Visuals listing alternates the position of image and description on desktop. */
 .design-list {
   padding-bottom: 170px;
 }
@@ -575,6 +591,7 @@ h2 {
 
 /* ===== FISHTANK / BUBBLES ===== */
 
+/* Decorative background layer. It cannot receive clicks or obscure page content. */
 .water-layer {
   position: fixed;
   inset: 0;
@@ -614,6 +631,7 @@ h2 {
 
 /* ===== RESPONSIVE ===== */
 
+/* Tablet: collapse multi-column layouts while preserving generous spacing. */
 @media (max-width: 800px) {
   .site-header {
     align-items: flex-start;
@@ -694,6 +712,7 @@ h2 {
   }
 }
 
+/* Phone: stack the header and simplify controls that would be too small to use. */
 @media (max-width: 520px) {
   .site-header {
     flex-direction: column;

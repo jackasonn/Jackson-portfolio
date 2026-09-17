@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Page metadata and shared site styling. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Jackson Moore — visual communication, interaction and design projects.">
-  <title>Visual Art / Design — Jackson Moore</title>
+  <title>Visuals — Jackson Moore</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Decorative bubbles; they do not affect page content. -->
   <div class="water-layer" aria-hidden="true">
     <div class="bubble bubble-2"></div>
     <div class="bubble bubble-4"></div>
     <div class="bubble bubble-5"></div>
   </div>
 
+  <!-- Shared site navigation. -->
   <header class="site-header">
     <a class="logo" href="index.html">JACKSON<br>MOORE</a>
     <nav class="nav" aria-label="Main navigation">
-      <a href="index.html">Home</a>
       <a href="music.html">Music</a>
-      <a href="design.html" class="active">Visual Art / Design</a>
+      <a href="design.html">Visuals</a>
     </nav>
   </header>
 
   <main>
+    <!-- Introduction to the visuals portfolio. -->
     <section class="page-intro section">
-      <p class="eyebrow">03 / VISUAL ART & DESIGN</p>
       <h1>Visual systems,<br>spaces & things.</h1>
       <p>
         Selected work spanning visual communication, interaction design,
@@ -33,14 +35,17 @@
       </p>
     </section>
 
+    <!-- JavaScript fills this empty element with design projects from projects.js. -->
     <section class="design-list section" id="design-list"></section>
   </main>
 
+  <!-- Shared footer. -->
   <footer class="site-footer">
     <span>© 2026 Jackson Moore</span>
     <a href="index.html">Back home ↑</a>
   </footer>
 
+  <!-- Project data loads before the scripts that use it. -->
   <script src="js/projects.js"></script>
   <script src="js/main.js"></script>
 </body>

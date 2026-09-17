@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Read the project ID from the URL, for example: project.html?id=kinetic-string.
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
   const project = projects.find((item) => item.id === id);
   const page = document.querySelector("#project-page");
 
+  // Show a helpful fallback rather than leaving the page empty for an invalid URL.
   if (!project) {
     page.innerHTML = `
       <section class="project-header">
@@ -15,20 +17,24 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  // Use the current project title in the browser tab.
   document.title = `${project.title} — Jackson Moore`;
 
+  // Turn every gallery path in the data into a numbered placeholder element.
   const gallery = project.gallery.map((image, index) => `
     <div class="gallery-image placeholder-image">
       <span>IMAGE ${String(index + 1).padStart(2, "0")}<br><small>${image}</small></span>
     </div>
   `).join("");
 
+  // Only music projects receive an audio player.
   const audioPlayer = project.audio
     ? `<audio class="audio-player" controls src="${project.audio}">
          Your browser does not support the audio player.
        </audio>`
     : "";
 
+  // Assemble the complete case-study layout from the selected project's data.
   page.innerHTML = `
     <section class="project-header">
       <a class="back-link" href="${project.type === "music" ? "music.html" : "design.html"}">
