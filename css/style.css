@@ -1,15 +1,17 @@
 @font-face {
-    font-family: 'monument';
-    src: url('../assets/monumentextended-regular.otf') format('otf');
-    font-weight: 400;
-    font-style: normal;
+  font-family: 'Monument Extended';
+  src: url('../assets/monumentextended-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
   
 @font-face {
-    font-family: 'monument';
-    src: url('../assets/monumentextended-ultrabold') format('otf');
-    font-weight: 700;
-    font-style: normal;
+  font-family: 'Monument Extended';
+  src: url('../assets/monumentextended-ultrabold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -22,7 +24,7 @@
   --accent-dark: #416f65;
   --line: rgba(23, 24, 23, 0.16);
 
-  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Monument Extended", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --radius: 22px;
@@ -48,7 +50,7 @@ body {
 }
 
 h1, h2, h3 {
-    font-family: 'monument', sans-serif;
+  font-family: var(--font-display);
 }
 
 a {
@@ -74,6 +76,7 @@ main,
 }
 
 .logo {
+  font-family: var(--font-display);
   font-size: 0.72rem;
   line-height: 0.95;
   letter-spacing: 0.12em;
@@ -132,6 +135,51 @@ main,
   line-height: 0.88;
   letter-spacing: -0.065em;
   font-weight: 500;
+}
+
+.hero-full-bleed {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 100px);
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: end;
+  padding: clamp(80px, 13vw, 180px) 0 clamp(64px, 9vw, 130px);
+  overflow: hidden;
+  color: var(--background);
+  background-color: #302f2d;
+  /* Replace the colour above with: background-image: url('../assets/images/your-image.jpg'); */
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-full-bleed::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.12));
+}
+
+.hero-full-bleed .hero-copy {
+  max-width: var(--page-width);
+}
+
+.hero-full-bleed .eyebrow,
+.hero-full-bleed .hero-intro {
+  color: var(--background);
+}
+
+.hero-full-bleed .hero-intro {
+  max-width: 570px;
+}
+
+.hero-full-bleed h1 {
+  max-width: 980px;
+}
+
+.hero-full-bleed h1 em {
+  color: inherit;
 }
 
 .hero h1 em {
@@ -563,6 +611,11 @@ h2 {
 
   .hero {
     padding-top: 50px;
+  }
+
+  .hero-full-bleed {
+    min-height: calc(100svh - 100px);
+    padding-top: 80px;
   }
 
   .hero-visual {
