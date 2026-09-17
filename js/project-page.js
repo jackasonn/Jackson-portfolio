@@ -20,10 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Use the current project title in the browser tab.
   document.title = `${project.title} — Jackson Moore`;
 
-  // Turn every gallery path in the data into a numbered placeholder element.
-  const gallery = project.gallery.map((image, index) => `
+  // Turn every gallery path in the data into a numbered image. A missing file leaves its placeholder visible.
+  const gallery = (project.gallery ?? []).map((image, index) => `
     <div class="gallery-image placeholder-image">
       <span>IMAGE ${String(index + 1).padStart(2, "0")}<br><small>${image}</small></span>
+      <img src="${image}" alt="${project.title} gallery image ${index + 1}" onerror="this.remove()">
     </div>
   `).join("");
 
@@ -45,8 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
       <p class="project-meta">${project.category} · ${project.year}</p>
     </section>
 
+    <!-- The image source comes from the project's `hero` value in projects.js. -->
     <div class="project-hero placeholder-image">
       <span>HERO IMAGE<br><small>${project.hero}</small></span>
+      <img src="${project.hero}" alt="${project.title} hero image" onerror="this.remove()">
     </div>
 
     <article class="project-body">
@@ -57,13 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
       <section class="project-section">
         <p class="eyebrow">OVERVIEW</p>
         <h2>The project</h2>
-        <p>${project.longDescription}</p>
+        <p>${project.longDescription ?? project.description}</p>
       </section>
 
       <section class="project-section">
         <p class="eyebrow">FOCUS</p>
         <h2>What I explored</h2>
-        <p>${project.tags.join(" · ")}</p>
+        <p>${(project.tags ?? []).join(" · ")}</p>
       </section>
     </article>
 

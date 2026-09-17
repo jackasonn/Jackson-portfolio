@@ -257,6 +257,18 @@ main,
   font-weight: 700;
 }
 
+/* Real project images sit over the placeholder and crop cleanly to each card's shape. */
+.project-image > img,
+.project-hero > img,
+.gallery-image > img {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .hero-visual {
   aspect-ratio: 1 / 1.1;
   border-radius: 42% 42% 20px 20px;
