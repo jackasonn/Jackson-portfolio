@@ -1,10 +1,10 @@
 :root {
   /* ===== CHANGE THESE TO CREATE YOUR OWN VISUAL STYLE ===== */
-  --background: #f4f3ed;
+  --background: #e3e2de;
   --surface: #e8e6dc;
-  --text: #171817;
-  --muted: #6f716c;
-  --accent: #72a99b;
+  --text: #5d5853;
+  --muted: #b0a396;
+  --accent: #1351aa;
   --accent-dark: #416f65;
   --line: rgba(23, 24, 23, 0.16);
 
