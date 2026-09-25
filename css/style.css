@@ -416,11 +416,6 @@ main,
   padding-bottom: 70px;
 }
 
-.back-link {
-  color: var(--muted);
-  font-size: .8rem;
-}
-
 .project-header h1 {
   margin: 35px 0 15px;
   color: var(--accent);
@@ -523,16 +518,6 @@ main,
   display: block;
   width: 100%;
   height: auto;
-}
-
-.project-nav {
-  width: min(var(--page-width), calc(100% - var(--side-padding) * 2));
-  margin: 0 auto 100px;
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid var(--line);
-  padding-top: 25px;
-  color: var(--accent);
 }
 
 /* ===== FOOTER ===== */
