@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : project.type === "visual" || project.type === "both"
     );
 
-    container.innerHTML = filtered.map((project, index) => {
+    container.innerHTML = filtered.map((project) => {
       const destination = project.external
         ? `href="${project.url}" target="_blank" rel="noopener"`
         : `href="project.html?id=${project.id}"`;
