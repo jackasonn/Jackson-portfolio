@@ -33,7 +33,8 @@ Upkeep is central to the project. Rather than treating maintenance as something 
     type: "both",
     external: true,
     url: "https://jackasonn.github.io/interactive-song-archive/",
-    image: "assets/images/interactive-song-archive.jpg",
+    image: "assets/images/interactive-song-archive-hero.jpg",
+    hero: "assets/images/interactive-song-archive-hero.jpg",
     description: "An interactive archive for exploring songs through a playful digital interface."
   },
   {
