@@ -173,12 +173,10 @@ main,
 }
 
 .floating-work-intro {
-  position: sticky;
-  top: 50vh;
+  position: relative;
   z-index: 3;
   width: min(500px, 90vw);
   margin: 0 auto;
-  transform: translateY(-50%);
   text-align: center;
   pointer-events: none;
 }
@@ -207,7 +205,7 @@ main,
   z-index: 2;
   width: clamp(180px, 19vw, 290px);
   transform: translate3d(0, var(--scroll-y), 0) rotate(calc(var(--base-rotation, 0deg) + var(--scroll-rotation)));
-  transition: transform 120ms ease-out;
+  transition: transform 500ms cubic-bezier(.22, .61, .36, 1);
   will-change: transform;
   pointer-events: auto;
 }
