@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Page metadata and shared site styling. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jackson Moore — music, production and sound work.">
+  <meta name="description" content="Jackson Moore — music, production and interactive sound work.">
   <title>Music — Jackson Moore</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Decorative bubbles; they do not affect page content. -->
   <div class="water-layer" aria-hidden="true">
     <div class="bubble bubble-1"></div>
     <div class="bubble bubble-3"></div>
     <div class="bubble bubble-5"></div>
   </div>
 
-  <!-- Shared site navigation. -->
   <header class="site-header">
     <a class="logo" href="index.html">JACKSON<br>MOORE</a>
     <nav class="nav" aria-label="Main navigation">
@@ -26,26 +23,34 @@
   </header>
 
   <main>
-    <!-- Introduction to the music portfolio. -->
     <section class="page-intro section">
+      <p class="eyebrow">MUSIC</p>
       <h1>Sound, songs,<br>& experiments.</h1>
-      <p>
-        A collection of songs, compositions, productions and sound-based
-        projects I've worked on.
-      </p>
+      <p>A collection of songs, productions and interactive sound-based projects.</p>
     </section>
 
-    <!-- JavaScript fills this empty element with music projects from projects.js. -->
-    <section class="music-list section" id="music-list"></section>
+    <section class="project-link-list section" id="music-list"></section>
+
+    <section class="platform-links section">
+      <p class="eyebrow">LISTEN</p>
+      <div class="platform-link-row">
+        <a href="https://music.apple.com/au/artist/jackson-moore/6800161995" target="_blank" rel="noopener">Apple Music <span>↗</span></a>
+        <a href="https://open.spotify.com/artist/7njkLldCadYfsRvvedCBV6" target="_blank" rel="noopener">Spotify <span>↗</span></a>
+      </div>
+    </section>
   </main>
 
-  <!-- Shared footer. -->
   <footer class="site-footer">
-    <span>© 2026 Jackson Moore</span>
-    <a href="index.html">Back home</a>
+    <div class="footer-socials" aria-label="Social media">
+      <a href="https://www.instagram.com/jackasonn_music/" target="_blank" rel="noopener">Instagram · Music</a>
+      <a href="https://www.instagram.com/jackasonn_visuals/" target="_blank" rel="noopener">Instagram · Visuals</a>
+    </div>
+    <div class="footer-meta">
+      <span>© 2026 Jackson Moore</span>
+      <a href="index.html">Back home</a>
+    </div>
   </footer>
 
-  <!-- Project data loads before the scripts that use it. -->
   <script src="js/projects.js"></script>
   <script src="js/main.js"></script>
 </body>
