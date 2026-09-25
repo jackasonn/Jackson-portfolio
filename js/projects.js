@@ -92,8 +92,7 @@ Upkeep is central to the project. Rather than treating maintenance as something 
     tags: ["Album Art", "Graphic Design", "Art Direction"],
     gallery: [
       "assets/images/lost-at-sea-01.jpg",
-      "assets/images/lost-at-sea-02.jpg",
-      "assets/images/lost-at-sea-03.jpg"
+      "assets/images/lost-at-sea-02.jpg"
     ]
   }
 ];
