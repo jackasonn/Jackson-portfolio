@@ -94,4 +94,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ${gallery ? `<section class="project-gallery">${gallery}</section>` : ""}
   `;
+
+  // Landscape gallery images automatically span both columns.
+  page.querySelectorAll(".project-gallery-image img").forEach((image) => {
+    const markGalleryWidth = () => {
+      if (image.naturalWidth > image.naturalHeight) {
+        image.parentElement.classList.add("gallery-wide");
+      }
+    };
+
+    if (image.complete) {
+      markGalleryWidth();
+    } else {
+      image.addEventListener("load", markGalleryWidth, { once: true });
+    }
+  });
 });
