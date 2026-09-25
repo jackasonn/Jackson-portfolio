@@ -514,6 +514,10 @@ main,
   background: var(--surface);
 }
 
+.project-gallery-image.gallery-wide {
+  grid-column: 1 / -1;
+}
+
 .project-gallery-image img {
   display: block;
   width: 100%;
