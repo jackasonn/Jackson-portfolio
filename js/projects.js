@@ -70,7 +70,12 @@ Upkeep is central to the project. Rather than treating maintenance as something 
       "assets/images/smash-camp-01.jpg",
       "assets/images/smash-camp-02.jpg",
       "assets/images/smash-camp-03.jpg",
-      "assets/images/smash-camp-04.jpg"
+      "assets/images/smash-camp-04.jpg",
+      "assets/images/smash-camp-05.jpg",
+      "assets/images/smash-camp-06.jpg",
+      "assets/images/smash-camp-07.jpg",
+      "assets/images/smash-camp-08.png",
+      "assets/images/smash-camp-09.png"
     ]
   },
   {
