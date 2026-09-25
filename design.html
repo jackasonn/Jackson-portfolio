@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Page metadata and shared site styling. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Jackson Moore — visual communication, interaction and design projects.">
@@ -9,14 +8,12 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Decorative bubbles; they do not affect page content. -->
   <div class="water-layer" aria-hidden="true">
     <div class="bubble bubble-2"></div>
     <div class="bubble bubble-4"></div>
     <div class="bubble bubble-5"></div>
   </div>
 
-  <!-- Shared site navigation. -->
   <header class="site-header">
     <a class="logo" href="index.html">JACKSON<br>MOORE</a>
     <nav class="nav" aria-label="Main navigation">
@@ -26,26 +23,26 @@
   </header>
 
   <main>
-    <!-- Introduction to the visuals portfolio. -->
     <section class="page-intro section">
+      <p class="eyebrow">VISUALS</p>
       <h1>Visual systems,<br>spaces & things.</h1>
-      <p>
-        Selected work spanning visual communication, interaction design,
-        worldbuilding, and creative experimentation.
-      </p>
+      <p>Selected work spanning visual communication, interaction design, graphic design and creative experimentation.</p>
     </section>
 
-    <!-- JavaScript fills this empty element with design projects from projects.js. -->
-    <section class="design-list section" id="design-list"></section>
+    <section class="project-link-list section" id="design-list"></section>
   </main>
 
-  <!-- Shared footer. -->
   <footer class="site-footer">
-    <span>© 2026 Jackson Moore</span>
-    <a href="index.html">Back home</a>
+    <div class="footer-socials" aria-label="Social media">
+      <a href="https://www.instagram.com/jackasonn_music/" target="_blank" rel="noopener">Instagram · Music</a>
+      <a href="https://www.instagram.com/jackasonn_visuals/" target="_blank" rel="noopener">Instagram · Visuals</a>
+    </div>
+    <div class="footer-meta">
+      <span>© 2026 Jackson Moore</span>
+      <a href="index.html">Back home</a>
+    </div>
   </footer>
 
-  <!-- Project data loads before the scripts that use it. -->
   <script src="js/projects.js"></script>
   <script src="js/main.js"></script>
 </body>
