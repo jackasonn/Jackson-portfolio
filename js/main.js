@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // The homepage gallery moves with a gentle parallax effect while the
-  // centre heading stays pinned to the middle of the viewport.
+  // Give the homepage gallery a slow, floaty scroll-drag effect.
   const floatingSection = document.querySelector(".floating-work");
   const floatingProjects = document.querySelectorAll(".floating-project");
   let ticking = false;
@@ -27,9 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const progress = (viewportHeight - sectionRect.top) / (viewportHeight + sectionRect.height);
 
     floatingProjects.forEach((project, index) => {
-      const strength = [110, -85, 140, -105, 75][index] || 90;
+      // Different gentle travel distances keep each image feeling independent.
+      const strength = [55, -42, 68, -52, 38][index] || 45;
       const movement = (progress - 0.5) * strength;
-      const rotation = (progress - 0.5) * (index % 2 === 0 ? 1.2 : -1.2);
+      const rotation = (progress - 0.5) * (index % 2 === 0 ? 0.65 : -0.65);
 
       project.style.setProperty("--scroll-y", `${movement}px`);
       project.style.setProperty("--scroll-rotation", `${rotation}deg`);
