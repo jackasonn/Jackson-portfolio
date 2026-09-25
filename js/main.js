@@ -13,19 +13,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // The floating homepage projects gently respond to scroll position.
+  // The homepage gallery moves with a gentle parallax effect while the
+  // centre heading stays pinned to the middle of the viewport.
+  const floatingSection = document.querySelector(".floating-work");
   const floatingProjects = document.querySelectorAll(".floating-project");
   let ticking = false;
 
   const updateFloatingProjects = () => {
-    const viewportCentre = window.innerHeight / 2;
+    if (!floatingSection || !floatingProjects.length) return;
 
-    floatingProjects.forEach((project) => {
-      const rect = project.getBoundingClientRect();
-      const projectCentre = rect.top + rect.height / 2;
-      const distance = (projectCentre - viewportCentre) / window.innerHeight;
-      const movement = Math.max(-1, Math.min(1, distance)) * -14;
-      const rotation = Math.max(-1, Math.min(1, distance)) * 1.5;
+    const sectionRect = floatingSection.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const progress = (viewportHeight - sectionRect.top) / (viewportHeight + sectionRect.height);
+
+    floatingProjects.forEach((project, index) => {
+      const strength = [110, -85, 140, -105, 75][index] || 90;
+      const movement = (progress - 0.5) * strength;
+      const rotation = (progress - 0.5) * (index % 2 === 0 ? 1.2 : -1.2);
 
       project.style.setProperty("--scroll-y", `${movement}px`);
       project.style.setProperty("--scroll-rotation", `${rotation}deg`);
