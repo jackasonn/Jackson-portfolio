@@ -13,6 +13,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Render the homepage gallery from projects.js.
+  // This keeps image paths in one place, so new projects automatically
+  // use their project image/hero without needing another hard-coded path.
+  const homeGallery = document.getElementById("home-gallery");
+
+  if (homeGallery && typeof projects !== "undefined") {
+    homeGallery.innerHTML = projects.map((project, index) => {
+      const destination = project.external
+        ? `href="${project.url}" target="_blank" rel="noopener"`
+        : `href="project.html?id=${project.id}"`;
+
+      const image = project.hero || project.image;
+
+      return `
+        <a class="floating-project floating-project-${index + 1}" ${destination}>
+          <div class="floating-project-image">
+            <img src="${image}" alt="${project.title} project">
+          </div>
+          <div class="floating-project-meta">
+            <h3>${project.title}</h3>
+            <p>${project.category} | ${project.year}</p>
+          </div>
+        </a>
+      `;
+    }).join("");
+  }
+
   // Give the homepage gallery a slow, floaty scroll-drag effect.
   const floatingSection = document.querySelector(".floating-work");
   const floatingProjects = document.querySelectorAll(".floating-project");
@@ -71,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <a class="project-list-link" ${destination}>
           <span class="project-list-title">${project.title}</span>
           <span class="project-list-meta">${project.category} · ${project.year}</span>
-</a>
+        </a>
       `;
     }).join("");
   };
