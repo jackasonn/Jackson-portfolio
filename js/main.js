@@ -69,11 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       return `
         <a class="project-list-link" ${destination}>
-          <span class="project-list-number">${String(index + 1).padStart(2, "0")}</span>
           <span class="project-list-title">${project.title}</span>
           <span class="project-list-meta">${project.category} · ${project.year}</span>
-          <span class="project-list-arrow">↗</span>
-        </a>
+</a>
       `;
     }).join("");
   };
