@@ -5,9 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const page = document.querySelector("#project-page");
 
   if (!project) {
-    page.innerHTML = `
+    const overviewParagraphs = (project.longDescription ?? project.description)
+    .split(/\n\s*\n/)
+    .map((paragraph) => `<p>${paragraph}</p>`)
+    .join("");
+
+  page.innerHTML = `
       <section class="project-header">
-        <a class="back-link" href="index.html">← Back home</a>
         <h1>Project not found.</h1>
         <p class="project-meta">Try going back and selecting a project.</p>
       </section>
@@ -49,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   page.innerHTML = `
     <section class="project-header">
-      <a class="back-link" href="index.html">← Back home</a>
       <h1>${project.title}</h1>
       <p class="project-meta">${project.category} · ${project.year}</p>
     </section>
@@ -66,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <section class="project-section">
         <p class="eyebrow">OVERVIEW</p>
         <h2>The project</h2>
-        <p>${project.longDescription ?? project.description}</p>
+        <div class="project-overview">${overviewParagraphs}</div>
       </section>\n\n      ${project.id === "decay-repair" ? `
         <section class="project-section">
           <p class="eyebrow">CURRENTLY IN DEVELOPMENT</p>
@@ -89,9 +92,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ${gallery ? `<section class="project-gallery">${gallery}</section>` : ""}
 
-    <nav class="project-nav">
-      <a href="index.html">← Home</a>
-      <a href="${project.type === "music" ? "music.html" : "design.html"}">All ${project.type === "music" ? "music" : "visuals"} ↑</a>
-    </nav>
   `;
 });
