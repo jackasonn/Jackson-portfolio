@@ -61,7 +61,7 @@ Upkeep is central to the project. Rather than treating maintenance as something 
     category: "visual communication",
     year: "2026",
     type: "visual",
-    image: "assets/images/smash-camp.jpg",
+    image: "assets/images/smash-camp-hero.jpg",
     hero: "assets/images/smash-camp-hero.jpg",
     description: "A visual communication project bringing together the graphic elements created for Smash Camp.",
     longDescription: "This project collects the graphic design and visual communication work created for Smash Camp, presented as one cohesive project.",
