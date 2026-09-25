@@ -5,21 +5,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const page = document.querySelector("#project-page");
 
   if (!project) {
-    const overviewParagraphs = (project.longDescription ?? project.description)
-    .split(/\n\s*\n/)
-    .map((paragraph) => `<p>${paragraph}</p>`)
-    .join("");
-
-  page.innerHTML = `
+    page.innerHTML = `
       <section class="project-header">
         <h1>Project not found.</h1>
-        <p class="project-meta">Try going back and selecting a project.</p>
+        <p class="project-meta">Try using the navigation above to choose a project.</p>
       </section>
     `;
     return;
   }
 
   document.title = `${project.title} — Jackson Moore`;
+
+  const overviewParagraphs = (project.longDescription ?? project.description)
+    .split(/\n\s*\n/)
+    .map((paragraph) => `<p>${paragraph}</p>`)
+    .join("");
 
   const gallery = (project.gallery ?? []).map((image, index) => `
     <figure class="project-gallery-image">
@@ -70,7 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="eyebrow">OVERVIEW</p>
         <h2>The project</h2>
         <div class="project-overview">${overviewParagraphs}</div>
-      </section>\n\n      ${project.id === "decay-repair" ? `
+      </section>
+
+      ${project.id === "decay-repair" ? `
         <section class="project-section">
           <p class="eyebrow">CURRENTLY IN DEVELOPMENT</p>
           <h2>Building the experience</h2>
@@ -91,6 +93,5 @@ document.addEventListener("DOMContentLoaded", () => {
     </article>
 
     ${gallery ? `<section class="project-gallery">${gallery}</section>` : ""}
-
   `;
 });
