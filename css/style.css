@@ -170,13 +170,15 @@ main,
   width: 100%;
   min-height: 1250px;
   padding: 180px 0 220px;
+  display: grid;
+  place-items: center;
 }
 
 .floating-work-intro {
   position: relative;
   z-index: 3;
   width: min(500px, 90vw);
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
   pointer-events: none;
 }
@@ -650,10 +652,6 @@ main,
 
   .floating-work {
     min-height: 1050px;
-  }
-
-  .floating-work-intro {
-    top: 35vh;
   }
 
   .floating-work-intro h2 {
