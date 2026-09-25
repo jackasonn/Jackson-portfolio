@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="project-links">
         <p class="eyebrow">PROJECT WEBSITE</p>
         <a href="${project.website}" target="_blank" rel="noopener">Open the Repair / Decay website <span>↗</span></a>
+        <p class="project-link-note">This website is unfinished and is currently in development. It will be here once the project is ready.</p>
       </div>
     `
     : "";
@@ -66,7 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="eyebrow">OVERVIEW</p>
         <h2>The project</h2>
         <p>${project.longDescription ?? project.description}</p>
-      </section>
+      </section>\n\n      ${project.id === "decay-repair" ? `
+        <section class="project-section">
+          <p class="eyebrow">CURRENTLY IN DEVELOPMENT</p>
+          <h2>Building the experience</h2>
+          <p>Repair / Decay is still being developed as a collaborative project. The music, visual design, coding and interaction are being developed together, with testing and refinement shaping how the final experience will work.</p>
+        </section>
+      ` : ""}
 
       ${websiteLink}
       ${platformLinks}
