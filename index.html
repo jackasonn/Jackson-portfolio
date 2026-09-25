@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Page metadata and the shared stylesheet used by every page. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Jackson Moore — multidisciplinary creative working across visual design, interaction, music and sound.">
@@ -9,7 +8,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="home-page">
-  <!-- Decorative pointer-reactive bubbles; hidden from screen readers. -->
   <div class="water-layer" aria-hidden="true">
     <div class="bubble bubble-1"></div>
     <div class="bubble bubble-2"></div>
@@ -18,7 +16,6 @@
     <div class="bubble bubble-5"></div>
   </div>
 
-  <!-- Shared site navigation. It overlays the hero only on the homepage. -->
   <header class="site-header">
     <a class="logo" href="index.html">JACKSON<br>MOORE</a>
     <nav class="nav" aria-label="Main navigation">
@@ -28,7 +25,6 @@
   </header>
 
   <main>
-    <!-- Full-screen landing area. Replace its CSS background image in style.css. -->
     <section class="hero hero-full-bleed">
       <div class="hero-copy section">
         <p class="eyebrow">MULTIDISCIPLINARY CREATIVE · BRISBANE</p>
@@ -39,59 +35,67 @@
           disciplines meet.
         </p>
       </div>
-
     </section>
 
-    <!-- Featured project links. Add an <img> inside a project-image to show a real thumbnail. -->
-    <section class="section selected-work" id="selected-work">
-      <div class="section-heading">
-        <h2>A little bit of everything.</h2>
+    <section class="floating-work" id="selected-work">
+      <div class="floating-work-intro">
+        <p class="eyebrow">SELECTED WORK</p>
+        <h2>a little bit<br>of everything.</h2>
       </div>
 
-      <div class="feature-grid">
-        <a class="project-card project-card-large" href="project.html?id=decay-repair">
-          <div class="project-image placeholder-image">
-            <!-- Uses the uploaded Decay / Repair hero as this card's thumbnail. -->
-            <img src="assets/images/decay-repair-hero.jpg" alt="Decay / Repair interactive music experience">
+      <div class="floating-gallery" aria-label="Selected projects">
+        <a class="floating-project floating-project-1" href="project.html?id=decay-repair">
+          <div class="floating-project-image">
+            <img src="assets/images/decay-repair.jpg" alt="Decay / Repair project">
           </div>
-          <div class="card-meta">
-            <div>
-              <h3>Decay / Repair</h3>
-              <p>Interactive Music Experience · 2026</p>
-            </div>
-            <span>↗</span>
+          <div class="floating-project-meta">
+            <h3>repair / decay</h3>
+            <p>interactive music experience | 2026</p>
           </div>
         </a>
 
-        <a class="project-card" href="project.html?id=fernmere">
-          <div class="project-image placeholder-image">
-            <span>PROJECT<br>IMAGE</span>
+        <a class="floating-project floating-project-2" href="https://jackasonn.github.io/interactive-song-archive/" target="_blank" rel="noopener">
+          <div class="floating-project-image">
+            <img src="assets/images/interactive-song-archive.jpg" alt="Interactive Song Archive project">
           </div>
-          <div class="card-meta">
-            <div>
-              <h3>Sound Garden</h3>
-              <p>Interactive Installation · 2026</p>
-            </div>
-            <span>↗</span>
+          <div class="floating-project-meta">
+            <h3>interactive song archive</h3>
+            <p>interactive music archive | 2026</p>
           </div>
         </a>
 
-        <a class="project-card" href="project.html?id=come-what-may-tomorrow">
-          <div class="project-image placeholder-image">
-            <span>ARTWORK</span>
+        <a class="floating-project floating-project-3" href="project.html?id=come-what-may-tomorrow">
+          <div class="floating-project-image">
+            <img src="assets/images/come-what-may-tomorrow.jpg" alt="Come What May Tomorrow artwork">
           </div>
-          <div class="card-meta">
-            <div>
-              <h3>Come What May Tomorrow</h3>
-              <p>Music · 2026</p>
-            </div>
-            <span>↗</span>
+          <div class="floating-project-meta">
+            <h3>come what may tomorrow</h3>
+            <p>song · songwriting & production | 2026</p>
+          </div>
+        </a>
+
+        <a class="floating-project floating-project-4" href="project.html?id=smash-camp">
+          <div class="floating-project-image">
+            <img src="assets/images/smash-camp.jpg" alt="Smash Camp visual design project">
+          </div>
+          <div class="floating-project-meta">
+            <h3>smash camp</h3>
+            <p>visual communication | 2026</p>
+          </div>
+        </a>
+
+        <a class="floating-project floating-project-5" href="project.html?id=lost-at-sea">
+          <div class="floating-project-image">
+            <img src="assets/images/lost-at-sea.jpg" alt="Lost at Sea album artwork">
+          </div>
+          <div class="floating-project-meta">
+            <h3>lost at sea</h3>
+            <p>album artwork | 2026</p>
           </div>
         </a>
       </div>
     </section>
 
-    <!-- Short personal introduction. -->
     <section class="about section">
       <div>
         <p class="eyebrow">WHO I AM</p>
@@ -110,7 +114,6 @@
       </div>
     </section>
 
-    <!-- Contact call to action. Replace the email address when ready. -->
     <section class="contact section">
       <p class="eyebrow">LET'S MAKE SOMETHING</p>
       <h2>Have a project in mind?</h2>
@@ -118,13 +121,17 @@
     </section>
   </main>
 
-  <!-- Shared footer. -->
   <footer class="site-footer">
-    <span>© 2026 Jackson Moore</span>
-    <span>Built with curiosity.</span>
+    <div class="footer-socials" aria-label="Social media">
+      <a href="https://www.instagram.com/jackasonn_music/" target="_blank" rel="noopener">Instagram · Music</a>
+      <a href="https://www.instagram.com/jackasonn_visuals/" target="_blank" rel="noopener">Instagram · Visuals</a>
+    </div>
+    <div class="footer-meta">
+      <span>© 2026 Jackson Moore</span>
+      <span>Built with curiosity.</span>
+    </div>
   </footer>
 
-  <!-- Shared decorative interactions. -->
   <script src="js/main.js"></script>
 </body>
 </html>
