@@ -11,6 +11,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const randomBetween = (min, max) =>
     Math.random() * (max - min) + min;
 
+  const randomGalleryEdgePosition = () => {
+    if (Math.random() < 0.75) {
+      const edge = Math.floor(Math.random() * 4);
+      const edgePosition = randomBetween(4, 96);
+
+      if (edge === 0) return { left: randomBetween(2, 24), top: edgePosition };
+      if (edge === 1) return { left: randomBetween(76, 98), top: edgePosition };
+      if (edge === 2) return { left: edgePosition, top: randomBetween(2, 24) };
+      return { left: edgePosition, top: randomBetween(76, 98) };
+    }
+
+    return { left: randomBetween(24, 76), top: randomBetween(24, 76) };
+  };
+
   // Replace the old CSS bubbles with the new bubble artwork.
   const waterLayer = document.querySelector(".water-layer");
 
@@ -26,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       bubble.style.width = `${randomBetween(22, 42)}px`;
       bubble.style.left = `${randomBetween(3, 97)}%`;
       bubble.style.setProperty("--bubble-rotation", `${randomBetween(-25, 25)}deg`);
+      bubble.style.setProperty("--bubble-sway", `${randomBetween(18, 45)}px`);
       bubble.style.animationDuration = `${randomBetween(11, 20)}s`;
       bubble.style.animationDelay = `-${randomBetween(0, 20)}s`;
       waterLayer.appendChild(bubble);
