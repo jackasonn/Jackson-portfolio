@@ -43,11 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
     bubble.setAttribute("aria-hidden", "true");
     bubble.style.left = `${event.clientX}px`;
     bubble.style.top = `${event.clientY}px`;
-    bubble.style.width = `${randomBetween(24, 48)}px`;
-    bubble.style.setProperty("--click-rotation", `${randomBetween(-30, 30)}deg`);
+    bubble.style.width = `${randomBetween(22, 46)}px`;
+    bubble.style.setProperty("--bubble-rotation", `${randomBetween(-25, 25)}deg`);
+    bubble.style.setProperty("--bubble-sway", `${randomBetween(18, 45)}px`);
+    bubble.style.animationDuration = `${randomBetween(11, 20)}s`;
     document.body.appendChild(bubble);
 
-    window.setTimeout(() => bubble.remove(), 1600);
+    window.setTimeout(() => bubble.remove(), 20000);
   });
 
   // Render the homepage gallery from projects.js.
@@ -76,19 +78,32 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }).join("");
 
-    // Add decorative bubbles with randomized appearance and position.
-    for (let i = 0; i < 3; i += 1) {
+    // Add 3–9 large decorative bubbles, weighted toward the gallery edges.
+    const galleryBubbleCount = Math.floor(randomBetween(3, 10));
+
+    for (let i = 0; i < galleryBubbleCount; i += 1) {
       const bubble = document.createElement("img");
+      const position = randomGalleryEdgePosition();
       bubble.className = "gallery-bubble";
       bubble.src = randomBubbleSource();
       bubble.alt = "";
       bubble.setAttribute("aria-hidden", "true");
-      bubble.style.left = `${randomBetween(18, 82)}%`;
-      bubble.style.top = `${randomBetween(10, 90)}%`;
-      bubble.style.width = `${randomBetween(90, 170)}px`;
+      bubble.style.left = `${position.left}%`;
+      bubble.style.top = `${position.top}%`;
+      bubble.style.width = `${randomBetween(130, 280)}px`;
       bubble.style.setProperty("--bubble-base-rotation", `${randomBetween(-35, 35)}deg`);
       homeGallery.appendChild(bubble);
     }
+
+    homeGallery.addEventListener("click", (event) => {
+      const bubble = event.target.closest(".gallery-bubble");
+      if (!bubble) return;
+      event.preventDefault();
+      event.stopPropagation();
+      bubble.classList.remove("gallery-bubble-pop");
+      void bubble.offsetWidth;
+      bubble.classList.add("gallery-bubble-pop");
+    });
   }
 
   // Give the homepage gallery a slow, floaty scroll-drag effect.
@@ -114,9 +129,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     galleryBubbles.forEach((bubble, index) => {
-      const strength = [42, -58, 50][index % 3];
+      const strength = [150, -185, 215, -165, 195, -225][index % 6];
       const movement = (progress - 0.5) * strength;
-      const rotation = (progress - 0.5) * (index % 2 === 0 ? 0.8 : -0.8);
+      const rotation = (progress - 0.5) * (index % 2 === 0 ? 2.2 : -2.2);
 
       bubble.style.setProperty("--scroll-y", `${movement}px`);
       bubble.style.setProperty("--scroll-rotation", `${rotation}deg`);
