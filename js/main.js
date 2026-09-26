@@ -1,16 +1,53 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Keep the existing subtle bubble interaction.
-  const bubbles = document.querySelectorAll(".bubble");
+  const bubbleSources = [
+    "assets/images/bubble-01.png",
+    "assets/images/bubble-02.png",
+    "assets/images/bubble-03.png"
+  ];
 
-  window.addEventListener("pointermove", (event) => {
-    const x = (event.clientX / window.innerWidth - 0.5) * 10;
-    const y = (event.clientY / window.innerHeight - 0.5) * 10;
+  const randomBubbleSource = () =>
+    bubbleSources[Math.floor(Math.random() * bubbleSources.length)];
 
-    bubbles.forEach((bubble, index) => {
-      const amount = (index + 1) * 0.4;
-      bubble.style.marginLeft = `${x * amount}px`;
-      bubble.style.marginTop = `${y * amount}px`;
-    });
+  const randomBetween = (min, max) =>
+    Math.random() * (max - min) + min;
+
+  // Replace the old CSS bubbles with the new bubble artwork.
+  const waterLayer = document.querySelector(".water-layer");
+
+  if (waterLayer) {
+    waterLayer.innerHTML = "";
+
+    for (let i = 0; i < 6; i += 1) {
+      const bubble = document.createElement("img");
+      bubble.className = "bubble floating-bubble";
+      bubble.src = randomBubbleSource();
+      bubble.alt = "";
+      bubble.setAttribute("aria-hidden", "true");
+      bubble.style.width = `${randomBetween(22, 42)}px`;
+      bubble.style.left = `${randomBetween(3, 97)}%`;
+      bubble.style.setProperty("--bubble-rotation", `${randomBetween(-25, 25)}deg`);
+      bubble.style.animationDuration = `${randomBetween(11, 20)}s`;
+      bubble.style.animationDelay = `-${randomBetween(0, 20)}s`;
+      waterLayer.appendChild(bubble);
+    }
+  }
+
+  // Clicking anywhere that isn't a link creates a temporary bubble.
+  document.addEventListener("click", (event) => {
+    if (event.target.closest("a")) return;
+
+    const bubble = document.createElement("img");
+    bubble.className = "click-bubble";
+    bubble.src = randomBubbleSource();
+    bubble.alt = "";
+    bubble.setAttribute("aria-hidden", "true");
+    bubble.style.left = `${event.clientX}px`;
+    bubble.style.top = `${event.clientY}px`;
+    bubble.style.width = `${randomBetween(24, 48)}px`;
+    bubble.style.setProperty("--click-rotation", `${randomBetween(-30, 30)}deg`);
+    document.body.appendChild(bubble);
+
+    window.setTimeout(() => bubble.remove(), 1600);
   });
 
   // Render the homepage gallery from projects.js.
@@ -38,11 +75,26 @@ document.addEventListener("DOMContentLoaded", () => {
         </a>
       `;
     }).join("");
+
+    // Add decorative bubbles with randomized appearance and position.
+    for (let i = 0; i < 3; i += 1) {
+      const bubble = document.createElement("img");
+      bubble.className = "gallery-bubble";
+      bubble.src = randomBubbleSource();
+      bubble.alt = "";
+      bubble.setAttribute("aria-hidden", "true");
+      bubble.style.left = `${randomBetween(18, 82)}%`;
+      bubble.style.top = `${randomBetween(10, 90)}%`;
+      bubble.style.width = `${randomBetween(90, 170)}px`;
+      bubble.style.setProperty("--bubble-base-rotation", `${randomBetween(-35, 35)}deg`);
+      homeGallery.appendChild(bubble);
+    }
   }
 
   // Give the homepage gallery a slow, floaty scroll-drag effect.
   const floatingSection = document.querySelector(".floating-work");
   const floatingProjects = document.querySelectorAll(".floating-project");
+  const galleryBubbles = document.querySelectorAll(".gallery-bubble");
   let ticking = false;
 
   const updateFloatingProjects = () => {
@@ -53,13 +105,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const progress = (viewportHeight - sectionRect.top) / (viewportHeight + sectionRect.height);
 
     floatingProjects.forEach((project, index) => {
-      // Different gentle travel distances keep each image feeling independent.
       const strength = [55, -42, 68, -52, 38][index] || 45;
       const movement = (progress - 0.5) * strength;
       const rotation = (progress - 0.5) * (index % 2 === 0 ? 0.65 : -0.65);
 
       project.style.setProperty("--scroll-y", `${movement}px`);
       project.style.setProperty("--scroll-rotation", `${rotation}deg`);
+    });
+
+    galleryBubbles.forEach((bubble, index) => {
+      const strength = [42, -58, 50][index % 3];
+      const movement = (progress - 0.5) * strength;
+      const rotation = (progress - 0.5) * (index % 2 === 0 ? 0.8 : -0.8);
+
+      bubble.style.setProperty("--scroll-y", `${movement}px`);
+      bubble.style.setProperty("--scroll-rotation", `${rotation}deg`);
     });
 
     ticking = false;
@@ -72,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  if (floatingProjects.length) {
+  if (floatingProjects.length || galleryBubbles.length) {
     window.addEventListener("scroll", requestFloatingUpdate, { passive: true });
     window.addEventListener("resize", requestFloatingUpdate);
     requestFloatingUpdate();
