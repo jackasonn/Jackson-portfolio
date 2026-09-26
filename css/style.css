@@ -563,26 +563,70 @@ main,
 
 .bubble {
   position: absolute;
+  display: block;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+
+.floating-bubble {
   bottom: -80px;
-  width: 14px;
-  aspect-ratio: 1;
-  border: 1px solid rgba(114,169,155,.5);
-  border-radius: 50%;
-  opacity: .65;
   animation: float-up linear infinite;
 }
 
-.bubble-1 { left: 8%; animation-duration: 13s; animation-delay: -4s; }
-.bubble-2 { left: 31%; width: 9px; animation-duration: 18s; animation-delay: -10s; }
-.bubble-3 { left: 57%; width: 20px; animation-duration: 15s; animation-delay: -8s; }
-.bubble-4 { left: 76%; width: 8px; animation-duration: 11s; animation-delay: -2s; }
-.bubble-5 { left: 91%; width: 17px; animation-duration: 20s; animation-delay: -15s; }
+.click-bubble {
+  position: fixed;
+  z-index: 20;
+  pointer-events: none;
+  transform: translate(-50%, -50%) rotate(var(--click-rotation));
+  animation: click-pop 1.6s ease-out forwards;
+  user-select: none;
+}
+
+.gallery-bubble {
+  position: absolute;
+  z-index: 1;
+  pointer-events: auto;
+  user-select: none;
+  will-change: transform;
+  transform: translate3d(0, var(--scroll-y, 0px), 0)
+    rotate(calc(var(--bubble-base-rotation, 0deg) + var(--scroll-rotation, 0deg)));
+  transition: transform 500ms cubic-bezier(.22, .61, .36, 1);
+}
+
+.gallery-bubble:hover {
+  filter: brightness(1.04);
+}
 
 @keyframes float-up {
-  0% { transform: translate(0, 0) scale(.8); opacity: 0; }
-  10% { opacity: .55; }
-  50% { transform: translate(25px, -50vh) scale(1); }
-  100% { transform: translate(-30px, -115vh) scale(1.15); opacity: 0; }
+  0% {
+    transform: translate(0, 0) rotate(var(--bubble-rotation)) scale(.85);
+    opacity: 0;
+  }
+  10% { opacity: .8; }
+  50% {
+    transform: translate(25px, -50vh)
+      rotate(calc(var(--bubble-rotation) + 12deg)) scale(1);
+  }
+  100% {
+    transform: translate(-30px, -115vh)
+      rotate(calc(var(--bubble-rotation) + 25deg)) scale(1.08);
+    opacity: 0;
+  }
+}
+
+@keyframes click-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--click-rotation)) scale(.45);
+  }
+  18% { opacity: .95; }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--click-rotation) + 30deg)) scale(1.15);
+  }
 }
 
 /* ===== RESPONSIVE ===== */
