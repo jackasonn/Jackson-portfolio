@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (waterLayer) {
     waterLayer.innerHTML = "";
 
-    for (let i = 0; i < 6; i += 1) {
+    for (let i = 0; i < 4; i += 1) {
       const bubble = document.createElement("img");
       bubble.className = "bubble floating-bubble";
       bubble.src = randomBubbleSource();
@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
       bubble.style.left = `${randomBetween(3, 97)}%`;
       bubble.style.setProperty("--bubble-rotation", `${randomBetween(-25, 25)}deg`);
       bubble.style.setProperty("--bubble-sway", `${randomBetween(18, 45)}px`);
-      bubble.style.animationDuration = `${randomBetween(11, 20)}s`;
-      bubble.style.animationDelay = `-${randomBetween(0, 20)}s`;
+      bubble.style.animationDuration = `${randomBetween(24, 38)}s`;
+      bubble.style.animationDelay = `-${randomBetween(0, 38)}s`;
       waterLayer.appendChild(bubble);
     }
   }
@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
       bubble.classList.remove("gallery-bubble-pop");
       void bubble.offsetWidth;
       bubble.classList.add("gallery-bubble-pop");
+      window.setTimeout(() => bubble.classList.remove("gallery-bubble-pop"), 700);
     });
   }
 
